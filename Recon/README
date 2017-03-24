@@ -1,0 +1,8 @@
+Tools associated with reading, writing and reconstructing MR data from Varian/Agilent scanners 
+Utils contains several helpful wrappers surrounding common MR techniques such as n-dimensional centric ordered FFTs (fftc, ifftc, fft2c, ifft2c and fftnc and ifftnc)
+Contains code freely reproduced from two other locations; the ISMRM Sunrise Parallel imaging session () and the projection onto convex sets (POCS) method for partial Fourier reconstruction 
+
+Note that the reconVarian function is moderately high level but contains several good ``starting places'' for common sequences 
+The procpar reading function returns a struct of parameter name/values 
+
+All vendor-specific functions are Varian orientated, aside from the function readBrukerFid, which reads raw Bruker time domain data
