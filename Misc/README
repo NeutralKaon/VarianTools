@@ -1,0 +1,18 @@
+Viewimage.m is a multidimensional, complex image viewer that is very handy for flicking through high dimensional MR datasets. 
+
+Usage: `viewimage(im)` shows the first two dimensions of `im`; 
+Scroll by left-clicking and dragging in the field, or by using the scroll wheel of your mouse 
+Also, right-click and drag to change brightness & contrast 
+
+The drop-down menu contains useful tools such as plotting in x, y, and z directions, and show imaginary/real/magnitude/phase parts of complex data 
+
+Some options can be passed via argument calls, e.g.: 
+
+``viewimage(im,'zoom',2)`` -- scale up the window size 
+``viewimage(im,'Title','Hello World') -- change the menu bar title 
+``viewimage(im,'colormap','hot') -- change the colormap (hot can change). 
+
+This code has been passed around via sneakernet since at least 2002. I don't know the original author. If you are him, get in touch. 
+Edited by JJM and AZL. 
+
+There are a few known bugs. 
