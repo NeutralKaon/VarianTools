@@ -3,6 +3,6 @@ A set of utilities for medical imaging, particularly on the Varian (later Agilen
 
 This repo will be broadly formed into reconstruction and sequence-design tools. Proper documentation will follow. 
 
-If you've used any of these in your research, please cite a relevant paper (or just let me know). 
+If you've used any of these in your research, please cite a relevant paper from my [Google Scholar Page](https://scholar.google.co.uk/citations?user=LhYjunkAAAAJ&hl=en) (or just let me know). 
 
-Jack J. Miller, University of Oxford 2012-17 (Google Scholar page: https://scholar.google.co.uk/citations?user=LhYjunkAAAAJ&hl=en). 
+Jack J. Miller, University of Oxford 2012-17. 
