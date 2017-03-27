@@ -85,6 +85,10 @@ reconCSI2D.c    2D CSI recon
 reconCSI3D.c    3D CSI recon
 dprocCSI.c      CSI data processing
 
+reconMATLAB
+--------
+reconMATLAB.c   Pipe to external reconstruction on a different host
+
 common1D
 --------
 dproc1D.c       1D data processing
@@ -129,21 +133,22 @@ Contacts
 ========
 
 Paul Kinchesh,
-Agilent Technologies, 6 Mead Road, Oxford Industrial Park, Oxford OX5 1QU, UK
-paul.kinchesh@agilent.com
-
+paul.kinchesh@oncology.ox.ac.uk
+Jack Miller, 
+jack.miller <AlphaTango> physics.org
 
 Bug Reports
 ===========
 
-Paul Kinchesh, paul.kinchesh@agilent.com
+Paul Kinchesh, paul.kinchesh@oncology.ox.ac.uk
 
 
 Contributors
 ============
 
-Paul Kinchesh, Magnetic Resonance Systems, Agilent Technologies.
+Paul Kinchesh, formerly Agilent Technologies.
 Martyn Klassen, Robarts Research Institute, University of Western Ontario.
-Alexandr Khrapichev, Department of Physiology, Oxford University.
-Margaret Kritzer, Magnetic Resonance Systems, Agilent Technologies.
-Lana Kaiser, Magnetic Resonance Systems, Agilent Technologies.
+Alexandr Khrapichev, Department of Oncology, Oxford University.
+Margaret Kritzer, formerly Agilent Technologies.
+Lana Kaiser, formerly Agilent Technologies.
+Jack Miller, Departments of Physics and Physiology, Anatomy and Genetics, Univeristy of Oxford 
