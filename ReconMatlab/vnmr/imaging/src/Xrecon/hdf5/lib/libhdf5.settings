@@ -1,0 +1,72 @@
+	    SUMMARY OF THE HDF5 CONFIGURATION
+	    =================================
+
+General Information:
+-------------------
+		   HDF5 Version: 1.8.16
+		  Configured on: Tue Nov 10 08:50:45 CST 2015
+		  Configured by: hdftest@platypus
+		 Configure mode: production
+		    Host system: x86_64-unknown-linux-gnu
+	      Uname information: Linux platypus 2.6.32-573.3.1.el6.x86_64 #1 SMP Thu Aug 13 22:55:16 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+		       Byte sex: little-endian
+		      Libraries: static, shared
+	     Installation point: /mnt/scr1/pre-release/hdf5/v1816/thg-builds/platypus
+
+Compiling Options:
+------------------
+               Compilation Mode: production
+                     C Compiler: /usr/bin/gcc ( gcc (GCC) 4.4.7 20120313 )
+                         CFLAGS: 
+                      H5_CFLAGS: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wno-long-long -Wfloat-equal -Wmissing-format-attribute -Wmissing-noreturn -Wpacked -Wdisabled-optimization -Wformat=2 -Wunreachable-code -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Wnonnull -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wstrict-overflow -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -O3
+                      AM_CFLAGS: 
+                       CPPFLAGS: 
+                    H5_CPPFLAGS: -D_GNU_SOURCE -D_POSIX_C_SOURCE=200112L   -DNDEBUG -UH5_DEBUG_API
+                    AM_CPPFLAGS: -D_LARGEFILE64_SOURCE -D_LARGEFILE_SOURCE  -I/usr/hdf/lib/SZIP-shared/include
+               Shared C Library: yes
+               Static C Library: yes
+  Statically Linked Executables: yes
+                        LDFLAGS: 
+                     H5_LDFLAGS: 
+                     AM_LDFLAGS:  -L/usr/hdf/lib/SZIP-shared/lib
+ 	 	Extra libraries: -lrt -lsz -lz -ldl -lm 
+ 		       Archiver: ar
+ 		 	 Ranlib: ranlib
+ 	      Debugged Packages: 
+		    API Tracing: no
+
+Languages:
+----------
+                        Fortran: yes
+               Fortran Compiler: /usr/bin/gfortran ( GNU Fortran (GCC) 4.4.7 20120313 )
+          Fortran 2003 Compiler: yes
+                  Fortran Flags: 
+               H5 Fortran Flags:  
+               AM Fortran Flags: 
+         Shared Fortran Library: yes
+         Static Fortran Library: yes
+
+                            C++: yes
+                   C++ Compiler: /usr/bin/g++ ( g++ (GCC) 4.4.7 20120313 )
+                      C++ Flags: 
+                   H5 C++ Flags:  
+                   AM C++ Flags: 
+             Shared C++ Library: yes
+             Static C++ Library: yes
+
+Features:
+---------
+                  Parallel HDF5: no
+             High Level library: yes
+                   Threadsafety: no
+            Default API Mapping: v18
+ With Deprecated Public Symbols: yes
+         I/O filters (external): deflate(zlib),szip(encoder)
+                            MPE: no
+                     Direct VFD: no
+                        dmalloc: no
+Clear file buffers before write: yes
+           Using memory checker: no
+         Function Stack Tracing: no
+      Strict File Format Checks: no
+   Optimization Instrumentation: no
