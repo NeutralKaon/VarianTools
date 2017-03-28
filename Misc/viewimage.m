@@ -12,6 +12,7 @@ function varargout = viewimage(varargin)
 %         Options are key-value pairs chosen from: 
 %           - 'colormap', 'hot' (or any other valid colormap);
 %           - 'title', 'string'. 
+%           - 'zoom', <a positive real number greater than 0>. 
 %
 %         Note that having an odd-number of arguments will _not_ work
 %         (I.e., don't do viewimage(a, 'Title', 'Colormap','hot')...
@@ -21,6 +22,7 @@ function varargout = viewimage(varargin)
 % Modified by Jack Miller & Angus Lau 
 
 
+% Some versions of matlab may need to uncomment the below: 
 %warning('off','all')
 %feature('usehg2',0);
 %warning('on','all')
@@ -52,8 +54,8 @@ else
     end
     imstack    = squeeze(varargin{1});
     
-    %JM -- parse additional inputs, currently just a default colormap and
-    %figure title.
+    %JM -- parse additional inputs, currently just a default colormap,
+    %figure title, and zoom:
     
     changeSomething=false;
     if (length(varargin) ~= 2)
@@ -107,6 +109,7 @@ else
     
     % Create the figure graphics object, set the basic characteristics
     
+    % JJM
     % Detect primary monitor
     monitorPos = get(0,'MonitorPositions');
     monitorPri = monitorPos(1,:);
@@ -119,7 +122,7 @@ else
         'Colormap', gray(256), ...
         'DoubleBuffer', 'on', ...
         'Position', [monitorPri([1 2]) xres yres] );
-    %'Position', [monitorPri([1 2]) monitorPri([3 4])-monitorPri([1 2])] );
+
     
     
     % Set up the callbacks for right mouse button Win/Lev controls
@@ -127,7 +130,7 @@ else
     set( hfig, 'WindowButtonUpFcn',     'viewimage(''Release'', gcf, gca)' );
     
     % JJM - 27-10-14 - Modified to mousewheel through images 
-    set( hfig, 'WindowScrollWheelFcn', @Scroll);%'viewimage(''Scroll'', gcf, gca)' );
+    set( hfig, 'WindowScrollWheelFcn', @Scroll);
     
     % Hide the View, Insert, Tools, Window, and Help menus in the figure
     set(0, 'ShowHiddenHandles', 'on');
@@ -138,7 +141,7 @@ else
     set( findobj( hfig, 'Label', '&Help'        ), 'Visible', 'off');
     set(0, 'ShowHiddenHandles', 'off')
     
-    % Add ZOOM menu
+    % Add ZOOM menu with some sensible defaults 
     hmenu1 = uimenu( hfig, 'Label','Zoom');
     uimenu(hmenu1, 'Label', '1X', 'Callback', 'viewimage(''zoomit'', gcf, gca, 1)', ...
         'Checked', 'on' );
@@ -227,6 +230,8 @@ else
     end
     movegui(gcf,'onscreen');
     
+    
+    %If you uncommented the things at the begining, you probably want to re-enable hg2 later. 
     %feature('usehg2',1);
 end
 
@@ -287,8 +292,8 @@ function varargout = Press(hfig, haxes, varargin)
 set( hfig, 'WindowButtonMotionFcn', 'viewimage(''Move'', gcf, gca, 0)' );
 viewimage('Move', gcf, gca, 1);     % Store initial mouse pointer location by calling 'Move' routine
 
-%JJM -- Scrollwheel fcn 
-
+% Scrollwheel function 
+% -----------------------------------------------------------------------
 function varargout = Scroll(object, event) 
 
 viewimage('DoScroll',gcf,gca,event.VerticalScrollCount);
@@ -315,12 +320,9 @@ ptr=get(hfig, 'CurrentPoint');
    set( hfig,  'Name', sprintf('Viewimage: Im# %d/%d', axes_UD.num, axes_UD.count ));
    set( haxes, 'UserData', axes_UD );
    viewimage( 'update_image', hfig, haxes, himage);
-   
 
-
-
-% End JM
-
+% Callback to do nothing on mouse release 
+% --------------------
 function varargout = Release(hfig, haxes, varargin)
 set( hfig, 'WindowButtonMotionFcn', '' );    % This makes the callback a do-nothing operation
 if verLessThan('matlab','8.4.0')
@@ -529,13 +531,11 @@ figure;
 
 plot( squeeze(imstack(y,x,:)), '.-' );
 ylabel(sprintf('Magnitude at (%d, %d)', x, y));
+
+% Draw an ROI and plot it through the image 
 % ----------------------------------------------------
-% JJM 2/14
 function varargout = plot_roi_through( hfig, haxes, varargin)
 
-%   [x, y] = ginput(1);
-%   x = round(x);
-%   y = round(y);
 mask=roipoly();
 
 axes_UD = get( haxes, 'UserData');
@@ -563,6 +563,9 @@ figure;
 mask=repmat(mask, [1,1, size(imstack, 3)]);
 plot( squeeze(sum(sum(mask.*imstack))./sum(sum(mask))), '.-' );
 ylabel('ROI Magnitude/Mask size');
+%---------------------------------------------------------------
+% Again, the below might be required on some versions of matlab 
+
 
 % function im=getImage(haxes)
 % %Required helper function for HG2 graphics 
