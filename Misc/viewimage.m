@@ -344,8 +344,8 @@ if init == 1
     LASTY = ptr(2);
     
 else
-    dx = ptr(1)-LASTX;
-    dy = ptr(2)-LASTY;
+    dx = ceil(ptr(1)-LASTX);
+    dy = ceil(ptr(2)-LASTY);
     
     switch get(hfig,  'SelectionType');
         
